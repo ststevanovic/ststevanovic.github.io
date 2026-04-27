@@ -1,3 +1,30 @@
+// Parallax gradient background
+;(function () {
+  const r = document.documentElement;
+  let cx = 0.5, cy = 0.5, tx = 0.5, ty = 0.5;
+
+  document.addEventListener('mousemove', e => {
+    tx = e.clientX / window.innerWidth;
+    ty = e.clientY / window.innerHeight;
+  });
+
+  function tick() {
+    cx += (tx - cx) * 0.04;
+    cy += (ty - cy) * 0.04;
+    // Layer 1 — deep, barely shifts (8% travel)
+    r.style.setProperty('--p1x', (46 + cx * 8).toFixed(2) + '%');
+    r.style.setProperty('--p1y', (24 + cy * 8).toFixed(2) + '%');
+    // Layer 2 — mid (18% travel, anchored bottom-right)
+    r.style.setProperty('--p2x', (69 + (cx - 0.5) * 18).toFixed(2) + '%');
+    r.style.setProperty('--p2y', (59 + (cy - 0.5) * 18).toFixed(2) + '%');
+    // Layer 3 — near, most movement (28% travel)
+    r.style.setProperty('--p3x', (8  + cx * 28).toFixed(2) + '%');
+    r.style.setProperty('--p3y', (48 + (cy - 0.5) * 28).toFixed(2) + '%');
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
 // Slide carousel logic for services.html
 (function () {
   const container = document.getElementById('slidesContainer');
