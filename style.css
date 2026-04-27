@@ -367,8 +367,10 @@ footer {
 /* ===== SERVICES PAGE ===== */
 .slides-wrapper {
   position: fixed;
-  inset: 0;
-  padding-top: 60px;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   overflow: hidden;
 }
 
