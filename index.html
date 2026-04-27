@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">SS<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Open to collaboration</div>
+      <h1>build.<br><span class="accent">explore.</span></h1>
+      <p class="hero-title">Computational Scientist &nbsp;·&nbsp; ML Engineer &nbsp;·&nbsp; Bioinformatician</p>
+      <p class="hero-bio">
+        I build tools at the intersection of machine learning, structural biology, and data engineering —
+        from molecular simulations and protein function prediction to autograd engines and genomics pipelines.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          View Projects
+        </a>
+        <a href="services.html" class="btn btn-outline">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          Explore Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects" id="projects">
+    <div class="section-inner">
+      <p class="section-label">Work</p>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-sub">A selection of open-source tools spanning computational biology, machine learning, and data pipelines.</p>
+
+      <div class="projects-grid">
+
+        <a href="https://github.com/ststevanovic/rac-pymol" target="_blank" rel="noopener" class="project-card">
+          <div class="project-card-top">
+            <div class="project-icon">🧬</div>
+            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+          <div class="project-name">rac-pymol</div>
+          <div class="project-desc">Minimal Python toolkit for Rendering as Code using PyMOL — declarative molecular visualization from scripts.</div>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">PyMOL</span>
+            <span class="tag">Visualization</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ststevanovic/agent-docking" target="_blank" rel="noopener" class="project-card">
+          <div class="project-card-top">
+            <div class="project-icon">🤖</div>
+            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+          <div class="project-name">agent-docking</div>
+          <div class="project-desc">Small AI agent with a computational docking tool exposed via MCP — bridging LLMs and molecular biology.</div>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">AI</span>
+            <span class="tag">MCP</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ststevanovic/mini-autograd-from-scrach" target="_blank" rel="noopener" class="project-card">
+          <div class="project-card-top">
+            <div class="project-icon">⚙️</div>
+            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+          <div class="project-name">mini-autograd-from-scratch</div>
+          <div class="project-desc">Custom automatic differentiation engine implemented from scratch, with continuous integration and full test coverage.</div>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">ML</span>
+            <span class="tag">CI</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ststevanovic/NodeCoder" target="_blank" rel="noopener" class="project-card">
+          <div class="project-card-top">
+            <div class="project-icon">🔬</div>
+            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+          <div class="project-name">NodeCoder</div>
+          <div class="project-desc">Graph convolutional neural network for protein function prediction using structural and sequence features.</div>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">GCN</span>
+            <span class="tag">Bioinformatics</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ststevanovic/nf-wgs" target="_blank" rel="noopener" class="project-card">
+          <div class="project-card-top">
+            <div class="project-icon">🧪</div>
+            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+          <div class="project-name">nf-wgs</div>
+          <div class="project-desc">Whole genome sequence analysis pipeline written in Nextflow — reproducible, scalable WGS from raw reads to variants.</div>
+          <div class="project-tags">
+            <span class="tag">Nextflow</span>
+            <span class="tag">Genomics</span>
+            <span class="tag">WGS</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ststevanovic/ML-foundations" target="_blank" rel="noopener" class="project-card">
+          <div class="project-card-top">
+            <div class="project-icon">📐</div>
+            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+          <div class="project-name">ML-foundations</div>
+          <div class="project-desc">Machine Learning foundations: Linear Algebra, Calculus, and Statistics — interactive notebooks for core ML math.</div>
+          <div class="project-tags">
+            <span class="tag">Jupyter</span>
+            <span class="tag">Math</span>
+            <span class="tag">ML</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ststevanovic/target-enrichment-data-pipeline" target="_blank" rel="noopener" class="project-card">
+          <div class="project-card-top">
+            <div class="project-icon">🗂️</div>
+            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+          <div class="project-name">target-enrichment-data-pipeline</div>
+          <div class="project-desc">UniProt to KEGG pathway analysis — cell type association and target enrichment for drug discovery workflows.</div>
+          <div class="project-tags">
+            <span class="tag">Jupyter</span>
+            <span class="tag">UniProt</span>
+            <span class="tag">KEGG</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ststevanovic/openmm" target="_blank" rel="noopener" class="project-card">
+          <div class="project-card-top">
+            <div class="project-icon">⚡</div>
+            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+          <div class="project-name">openmm</div>
+          <div class="project-desc">Molecular dynamics simulation using high-performance GPU code — accelerated physics for biomolecular systems.</div>
+          <div class="project-tags">
+            <span class="tag">C++</span>
+            <span class="tag">GPU</span>
+            <span class="tag">MD Simulation</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <p class="section-label">Connect</p>
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-sub">Interested in collaboration, research, or just want to say hello?</p>
+
+      <div class="contact-grid">
+        <a href="https://github.com/ststevanovic" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </div>
+          <div>
+            <div class="contact-card-label">GitHub</div>
+            <div class="contact-card-value">View profile →</div>
+          </div>
+        </a>
+
+        <div class="contact-card" style="opacity:0.5;cursor:default;">
+          <div class="contact-card-icon">✉️</div>
+          <div>
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-value">coming soon</div>
+          </div>
+        </div>
+
+        <div class="contact-card" style="opacity:0.5;cursor:default;">
+          <div class="contact-card-icon">💼</div>
+          <div>
+            <div class="contact-card-label">LinkedIn</div>
+            <div class="contact-card-value">coming soon</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 &nbsp;·&nbsp; Built with HTML, CSS &amp; JS</p>
+  </footer>
+
+</body>
+</html>
