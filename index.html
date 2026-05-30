@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <title>Strahinja Stevanović</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="parallax-bg" aria-hidden="true"></div>
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">Welcome! 👋</a>
+      <a href="index.html" class="nav-logo"><span id="navGreet">Hello, World.</span><span class="nav-cursor">_</span></a>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html" class="active">Story</a></li>
         <li><a href="services.html">Services</a></li>
       </ul>
     </div>
@@ -23,149 +22,315 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-inner">
+<div class="hero-inner">
       <div class="hero-badge">Open to collaboration</div>
-      <h1>decode.<br><span class="accent">deploy.</span></h1>
-      <p class="hero-title">Computational Scientist &nbsp;·&nbsp; Bioinformatician &nbsp;·&nbsp; ML Engineer</p>
-      <p class="hero-bio">
-        I build tools at the intersection of machine learning, structural biology, and data engineering —
-        from molecular simulations and protein function prediction to autograd engines and genomics pipelines.
-      </p>
+      <h1 class="hero-statement">
+        Hi. I'm Strahinja.<br>
+        I started trying to predict which molecules could kill parasites.<br>
+        I kept pulling at the thread.<br>
+        It unraveled into something much larger.<br>
+        <em>Now I build the systems that help scientists skip the long way.</em>
+      </h1>
+      <p class="hero-title">Bioinformatics &nbsp;&middot;&nbsp; Data Engineering &nbsp;&middot;&nbsp; Belgrade &rarr; World</p>
       <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-          View Projects
-        </a>
-        <a href="services.html" class="btn btn-outline">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-          Explore Services
-        </a>
+        <a href="#story" class="btn btn-primary">Read my story &darr;</a>
+        <a href="#contact" class="btn btn-outline">Get in touch</a>
       </div>
     </div>
   </section>
 
-  <!-- Projects -->
-  <section class="projects" id="projects">
-    <div class="section-inner">
-      <p class="section-label">Work</p>
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-sub">A selection of open-source tools spanning computational biology, machine learning, and data pipelines.</p>
+  <!-- Story Timeline -->
+  <section class="story-section" id="story">
+    <div class="story-inner">
+      <div class="story-line" aria-hidden="true"></div>
 
+      <article class="chapter" data-chapter="1">
+        <div class="chapter-meta">
+          <span class="chapter-year">2009</span>
+          <div class="chapter-dot"></div>
+        </div>
+        <div class="chapter-content">
+          <p class="chapter-num">Chapter I</p>
+          <h2 class="chapter-headline">"What if we could simulate a molecule before we ever synthesize it?"</h2>
+          <p class="chapter-body">
+            B.Sc. Chemistry &rarr; M.Sc. Computational Chemistry, University of Belgrade.
+            The question that started everything: can math replace a test tube?
+            Thesis: homology modeling of the D2 receptor. Spoiler &mdash; yes, sometimes.
+          </p>
+          <button class="expand-btn" aria-expanded="false" data-panel="ch1a">
+            <span class="expand-arrow">&#9658;</span> What I actually learned here
+          </button>
+          <div class="expand-panel" id="ch1a">
+            <ul>
+              <li>Quantum mechanics on a laptop. Molecular mechanics. Force fields.</li>
+              <li>"In silico" is just a fancy phrase for data science with atoms.</li>
+              <li>The gap between a model and a result is almost always an engineering problem.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="chapter" data-chapter="2">
+        <div class="chapter-meta">
+          <span class="chapter-year">2015</span>
+          <div class="chapter-dot"></div>
+        </div>
+        <div class="chapter-content">
+          <p class="chapter-num">Chapter II</p>
+          <h2 class="chapter-headline">"Eight years of hunting drug candidates with code."</h2>
+          <p class="chapter-body">
+            Ph.D. in Pharmaceutical Chemistry &mdash; anti-Leishmanial drug discovery &mdash; at a government-funded
+            national research institute <span class="meta-tag">[RS]</span>.
+            COST Action research visits: University of Siena and NIC Ljubljana.
+            Six peer-reviewed publications. The scientific record is there; the engineering habit started here.
+          </p>
+          <button class="expand-btn" aria-expanded="false" data-panel="ch2a">
+            <span class="expand-arrow">&#9658;</span> The technical reality
+          </button>
+          <div class="expand-panel" id="ch2a">
+            <ul>
+              <li>Cheminformatics pipelines: QSAR, virtual screening, docking, ADMET.</li>
+              <li>Structure-based drug design: enzyme modeling &rarr; hit identification &rarr; synthesis proposal.</li>
+              <li>Reproducibility is not a virtue &mdash; it's infrastructure.</li>
+              <li>First encounter with "scale": 100K ligand libraries don't fit in a spreadsheet.</li>
+            </ul>
+          </div>
+          <button class="expand-btn" aria-expanded="false" data-panel="ch2b">
+            <span class="expand-arrow">&#9658;</span> Selected publications
+          </button>
+          <div class="expand-panel" id="ch2b">
+            <ul class="pubs">
+              <li><em>Molecules</em> 2016 &mdash; Arginase Flavonoid Anti-Leishmanial In Silico Inhibitors</li>
+              <li><em>Molecules</em> 2018 &mdash; In Silico Discovery of anti-Leishmanial Quinalidine</li>
+              <li><em>Molecules</em> 2019 &mdash; Oxadiazoles &amp; Indolizines vs. Leishmania</li>
+              <li><em>Mol. Biochem. Parasitol.</em> 2021 &mdash; Nicotinic AChR Virtual Screening</li>
+              <li><em>IJMS</em> 2022 &mdash; LEA Proteins &amp; Desiccation Tolerance in <em>Ramonda serbica</em></li>
+              <li><em>IJMS</em> 2023 &mdash; CRISPR/Cas9 Disruption of <em>Arabidopsis thaliana</em> DSS1</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="chapter" data-chapter="3">
+        <div class="chapter-meta">
+          <span class="chapter-year">2018</span>
+          <div class="chapter-dot"></div>
+        </div>
+        <div class="chapter-content">
+          <p class="chapter-num">Chapter III</p>
+          <h2 class="chapter-headline">"While writing a thesis, I built landing pages that outlived both of us."</h2>
+          <p class="chapter-body">
+            Front-end developer &mdash; remote &mdash; for a US logistics marketplace <span class="meta-tag">[TX]</span>
+            and a product studio <span class="meta-tag">[RS]</span>.
+            SEO-optimized pages still live in production 7+ years later. Angel-backed &rarr; $5M ARR.
+            The lesson: domain expertise without delivery is just potential.
+          </p>
+          <button class="expand-btn" aria-expanded="false" data-panel="ch3a">
+            <span class="expand-arrow">&#9658;</span> Why this chapter matters
+          </button>
+          <div class="expand-panel" id="ch3a">
+            <ul>
+              <li>First taste of shipping real things to real users &mdash; not academic artifacts.</li>
+              <li>"It works on my machine" is not a deployment strategy.</li>
+              <li>Performance, conversion, and accessibility are engineering problems, not aesthetic ones.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="chapter" data-chapter="4">
+        <div class="chapter-meta">
+          <span class="chapter-year">2019</span>
+          <div class="chapter-dot"></div>
+        </div>
+        <div class="chapter-content">
+          <p class="chapter-num">Chapter IV</p>
+          <h2 class="chapter-headline">"Biology generates more data than any scientist can analyze manually."</h2>
+          <p class="chapter-body">
+            Research Scientist on a government-funded project <span class="meta-tag">[RS]</span>.
+            Competitive funding &mdash; 10% acceptance rate. Transcriptomics, intrinsically disordered proteins,
+            structural modeling. Stakes included Parkinson's disease research. Presented at academic conferences.
+          </p>
+          <button class="expand-btn" aria-expanded="false" data-panel="ch4a">
+            <span class="expand-arrow">&#9658;</span> The technical shift
+          </button>
+          <div class="expand-panel" id="ch4a">
+            <ul>
+              <li>Genomics pipelines: from single-gene studies to whole-transcriptome analysis.</li>
+              <li>First real encounter with bioinformatics infrastructure &mdash; reproducible environments, workflow managers.</li>
+              <li><em>"When done right, biology is not the bottleneck. It's the pipeline."</em></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="chapter" data-chapter="5">
+        <div class="chapter-meta">
+          <span class="chapter-year">2022</span>
+          <div class="chapter-dot"></div>
+        </div>
+        <div class="chapter-content">
+          <p class="chapter-num">Chapter V</p>
+          <h2 class="chapter-headline">"10 million biomarker pairs. 2 days. Zero manual failures."</h2>
+          <p class="chapter-body">
+            Bioinformatics Scientist at a bioassay R&amp;D company <span class="meta-tag">[GB]</span>.
+            Slurm-based HPC pipeline with auto-partitioning for production-scale genomics.
+            Led the SELEX aptamer program &mdash; biophysics, structural modeling, click chemistry.
+            Refactored cross-language pipelines; cut RNA splicing runtime by 40%.
+          </p>
+          <button class="expand-btn" aria-expanded="false" data-panel="ch5a">
+            <span class="expand-arrow">&#9658;</span> What production bioinformatics actually looks like
+          </button>
+          <div class="expand-panel" id="ch5a">
+            <ul>
+              <li>Scheduling 10M+ jobs on a cluster is not a research problem &mdash; it's an ops problem.</li>
+              <li>CI coverage in bioinformatics is not optional. It's how you trust your results.</li>
+              <li>Structure-guided aptamer design: biophysics, code, and chemistry at the same table.</li>
+              <li>Cross-language pipelines (R + Python + Groovy + Bash) &mdash; clarity of interface beats purity of language.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="chapter" data-chapter="6">
+        <div class="chapter-meta">
+          <span class="chapter-year">2024</span>
+          <div class="chapter-dot"></div>
+        </div>
+        <div class="chapter-content">
+          <p class="chapter-num">Chapter VI</p>
+          <h2 class="chapter-headline">"4 ms median latency. 100% record coverage. Production or it didn't happen."</h2>
+          <p class="chapter-body">
+            Full-Stack Data Engineer for a US clinical data company <span class="meta-tag">[NY]</span> &mdash; remote.
+            OMOP ETL sequence assembler: automated, audit-ready, zero manual failures.
+            Serverless cross-storage workflow with SDK orchestration, real-time DB integration,
+            and full traceability at 4 ms median latency.
+          </p>
+          <button class="expand-btn" aria-expanded="false" data-panel="ch6a">
+            <span class="expand-arrow">&#9658;</span> The stack and the lessons
+          </button>
+          <div class="expand-panel" id="ch6a">
+            <ul>
+              <li>OMOP CDM: the standard that makes clinical data comparable across institutions.</li>
+              <li>Regimen assembly: combinatorial logic + clinical constraints + auditability = genuinely hard.</li>
+              <li>"Large scale" means dependency-graph complexity, not just row count.</li>
+              <li>The build system is the product. If it can't be handed off, it isn't done.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Interlude -->
+  <section class="projects interlude" id="projects">
+    <div class="section-inner">
+      <p class="section-label">Interlude</p>
+      <h2 class="section-title">What I Build When Nobody's Watching</h2>
+      <p class="section-sub">Open-source work and experiments &mdash; some tools, some toys, all honest.</p>
       <div class="projects-grid">
 
         <a href="https://github.com/ststevanovic/nf-wgs" target="_blank" rel="noopener" class="project-card">
-          <div class="project-card-top">
-            <div class="project-icon">🧪</div>
+          <div class="project-card-top"><div class="project-icon">&#129514;</div>
             <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </div>
           <div class="project-name">nf-wgs</div>
-          <div class="project-desc">Whole genome sequence analysis pipeline written in Nextflow — reproducible, scalable WGS from raw reads to variants.</div>
-          <div class="project-tags">
-            <span class="tag">Nextflow</span>
-            <span class="tag">Genomics</span>
-            <span class="tag">WGS</span>
-          </div>
+          <div class="project-desc">Whole genome sequence analysis pipeline &mdash; reproducible, scalable WGS from raw reads to variants.</div>
+          <div class="project-tags"><span class="tag">Nextflow</span><span class="tag">Genomics</span><span class="tag">WGS</span></div>
         </a>
 
         <a href="https://github.com/ststevanovic/rac-pymol" target="_blank" rel="noopener" class="project-card">
-          <div class="project-card-top">
-            <div class="project-icon">🧬</div>
+          <div class="project-card-top"><div class="project-icon">&#129516;</div>
             <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </div>
           <div class="project-name">rac-pymol</div>
-          <div class="project-desc">Minimal Python toolkit for Rendering as Code using PyMOL — declarative molecular visualization from scripts.</div>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">PyMOL</span>
-            <span class="tag">Visualization</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/ststevanovic/target-enrichment-data-pipeline" target="_blank" rel="noopener" class="project-card">
-          <div class="project-card-top">
-            <div class="project-icon">🗂️</div>
-            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </div>
-          <div class="project-name">target-enrichment-data-pipeline</div>
-          <div class="project-desc">UniProt to KEGG pathway analysis — cell type association and target enrichment for drug discovery workflows.</div>
-          <div class="project-tags">
-            <span class="tag">Jupyter</span>
-            <span class="tag">UniProt</span>
-            <span class="tag">KEGG</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/ststevanovic/regimen-assembler" target="_blank" rel="noopener" class="project-card">
-          <div class="project-card-top">
-            <div class="project-icon">🔧</div>
-            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </div>
-          <div class="project-name">regimen-assembler</div>
-          <div class="project-desc">Automated assembly of drug treatment regimens — combining clinical constraints and pharmacological rules for personalized therapy planning.</div>
-          <div class="project-tags">
-            <span class="tag">Prefect</span>
-            <span class="tag">Implementation</span>
-            <span class="tag">Clinical</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/OHDSI/ARTEMIS" target="_blank" rel="noopener" class="project-card">
-          <div class="project-card-top">
-            <div class="project-icon">🏥</div>
-            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </div>
-          <div class="project-name">ARTEMIS</div>
-          <div class="project-desc">OHDSI framework for automated real-world treatment sequence analysis — mapping and mining medication regimens from observational health data.</div>
-          <div class="project-tags">
-            <span class="tag">R</span>
-            <span class="tag">OHDSI</span>
-            <span class="tag">Real-World Data</span>
-          </div>
+          <div class="project-desc">Rendering as Code with PyMOL &mdash; declarative molecular visualization from scripts.</div>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag">PyMOL</span><span class="tag">Visualization</span></div>
         </a>
 
         <a href="https://github.com/ststevanovic/agent-docking" target="_blank" rel="noopener" class="project-card">
-          <div class="project-card-top">
-            <div class="project-icon">🤖</div>
+          <div class="project-card-top"><div class="project-icon">&#129302;</div>
             <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </div>
           <div class="project-name">agent-docking</div>
-          <div class="project-desc">Small AI agent with a computational docking tool exposed via MCP — bridging LLMs and molecular biology.</div>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">AI</span>
-            <span class="tag">MCP</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/ststevanovic/mini-autograd-from-scrach" target="_blank" rel="noopener" class="project-card">
-          <div class="project-card-top">
-            <div class="project-icon">⚙️</div>
-            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </div>
-          <div class="project-name">mini-autograd-from-scratch</div>
-          <div class="project-desc">Custom automatic differentiation engine implemented from scratch, with continuous integration and full test coverage.</div>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">ML</span>
-            <span class="tag">CI</span>
-          </div>
+          <div class="project-desc">AI agent with a computational docking tool via MCP &mdash; bridging LLMs and molecular biology.</div>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag">AI</span><span class="tag">MCP</span></div>
         </a>
 
         <a href="https://github.com/ststevanovic/NodeCoder" target="_blank" rel="noopener" class="project-card">
-          <div class="project-card-top">
-            <div class="project-icon">🔬</div>
+          <div class="project-card-top"><div class="project-icon">&#128300;</div>
             <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </div>
           <div class="project-name">NodeCoder</div>
           <div class="project-desc">Graph convolutional neural network for protein function prediction using structural and sequence features.</div>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">GCN</span>
-            <span class="tag">Bioinformatics</span>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag">GCN</span><span class="tag">Bioinformatics</span></div>
+        </a>
+
+        <a href="https://github.com/ststevanovic/mini-autograd-from-scrach" target="_blank" rel="noopener" class="project-card">
+          <div class="project-card-top"><div class="project-icon">&#9881;&#65039;</div>
+            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </div>
+          <div class="project-name">mini-autograd-from-scratch</div>
+          <div class="project-desc">Custom automatic differentiation engine from scratch &mdash; with CI and full test coverage.</div>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag">ML</span><span class="tag">CI</span></div>
+        </a>
+
+        <a href="https://github.com/ststevanovic/regimen-assembler" target="_blank" rel="noopener" class="project-card">
+          <div class="project-card-top"><div class="project-icon">&#128295;</div>
+            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+          <div class="project-name">regimen-assembler</div>
+          <div class="project-desc">Automated drug treatment regimen assembly &mdash; combinatorial clinical logic for therapy planning.</div>
+          <div class="project-tags"><span class="tag">Prefect</span><span class="tag">Clinical</span><span class="tag">Python</span></div>
+        </a>
+
+        <a href="https://github.com/OHDSI/ARTEMIS" target="_blank" rel="noopener" class="project-card">
+          <div class="project-card-top"><div class="project-icon">&#127973;</div>
+            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+          <div class="project-name">ARTEMIS</div>
+          <div class="project-desc">OHDSI framework for real-world treatment sequence analysis from observational health data.</div>
+          <div class="project-tags"><span class="tag">R</span><span class="tag">OHDSI</span><span class="tag">Real-World Data</span></div>
+        </a>
+
+        <a href="https://github.com/ststevanovic/target-enrichment-data-pipeline" target="_blank" rel="noopener" class="project-card">
+          <div class="project-card-top"><div class="project-icon">&#128194;</div>
+            <svg class="project-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+          <div class="project-name">target-enrichment-pipeline</div>
+          <div class="project-desc">UniProt to KEGG pathway analysis &mdash; cell type association and target enrichment for drug discovery.</div>
+          <div class="project-tags"><span class="tag">Jupyter</span><span class="tag">UniProt</span><span class="tag">KEGG</span></div>
         </a>
 
       </div>
+    </div>
+  </section>
+
+  <!-- Convergence -->
+  <section class="convergence-section" id="now">
+    <div class="section-inner">
+      <p class="section-label">Now &amp; Next</p>
+      <h2 class="section-title">"The boundary between scientist and engineer doesn't exist here."</h2>
+      <p class="section-sub">LLM Engineering (2025). Mathematical Foundations of ML (2025). The accumulation continues.</p>
+      <div class="convergence-grid">
+        <div class="conv-card">
+          <div class="conv-icon">&#129504;</div>
+          <h3>LLM Engineering</h3>
+          <p>Agents that reason over biological data. AI-native workflows for biomedical retrieval, domain ontologies, and molecular graphs.</p>
+        </div>
+        <div class="conv-card">
+          <div class="conv-icon">&#128376;&#65039;</div>
+          <h3>Graph Neural Networks</h3>
+          <p>GNNs applied to molecular and clinical graphs. Protein function prediction. Structure-aware learning with real validation.</p>
+        </div>
+        <div class="conv-card">
+          <div class="conv-icon">&#9881;&#65039;</div>
+          <h3>Observable Systems</h3>
+          <p>Scientific pipelines you can trace, trust, and hand off. If you can't observe it, you can't trust it.</p>
+        </div>
+      </div>
+      <p class="convergence-closing">The next decade belongs to people who can speak both languages.</p>
     </div>
   </section>
 
@@ -173,42 +338,35 @@
   <section class="contact" id="contact">
     <div class="section-inner">
       <p class="section-label">Connect</p>
-      <h2 class="section-title">Get in Touch</h2>
-      <p class="section-sub">Interested in collaboration, research, or just want to say hello?</p>
-
+      <h2 class="section-title">If you're building at the intersection<br>of biology and computation &mdash;</h2>
+      <p class="section-sub">whether it's a pipeline, a platform, a model, or a product &mdash; I'm interested.</p>
       <div class="contact-grid">
         <a href="https://github.com/ststevanovic" target="_blank" rel="noopener" class="contact-card">
           <div class="contact-card-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
           </div>
-          <div>
-            <div class="contact-card-label">GitHub</div>
-            <div class="contact-card-value">View profile →</div>
-          </div>
+          <div><div class="contact-card-label">GitHub</div><div class="contact-card-value">View profile &rarr;</div></div>
         </a>
-
         <a href="mailto:st.stevanov@gmail.com" class="contact-card">
-          <div class="contact-card-icon">✉️</div>
-          <div>
-            <div class="contact-card-label">Email</div>
-            <div class="contact-card-value">st.stevanov AT gmail</div>
-          </div>
+          <div class="contact-card-icon">&#x2709;&#xFE0F;</div>
+          <div><div class="contact-card-label">Email</div><div class="contact-card-value">st.stevanov AT gmail</div></div>
         </a>
-
         <a href="https://linkedin.com/in/strahinjastevanovic" target="_blank" rel="noopener" class="contact-card">
-          <div class="contact-card-icon">💼</div>
-          <div>
-            <div class="contact-card-label">LinkedIn</div>
-            <div class="contact-card-value">View profile →</div>
-          </div>
+          <div class="contact-card-icon">&#128188;</div>
+          <div><div class="contact-card-label">LinkedIn</div><div class="contact-card-value">View profile &rarr;</div></div>
+        </a>
+        <a href="https://orcid.org/0000-0002-9173-985X" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-card-icon">&#127891;</div>
+          <div><div class="contact-card-label">ORCID</div><div class="contact-card-value">Publication record &rarr;</div></div>
         </a>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 &nbsp;·&nbsp; Built with HTML, CSS &amp; JS</p>
+    <p>&copy; 2025 &nbsp;&middot;&nbsp; Built with HTML, CSS &amp; JS</p>
   </footer>
 
+  <script src="main.js"></script>
 </body>
 </html>

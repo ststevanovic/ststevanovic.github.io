@@ -1,31 +1,99 @@
-// Parallax gradient background
+/* =================================================================
+   SCROLL PARALLAX — hero blobs move at different depths on scroll
+   blob-1 (back): slowest | blob-2 (mid): medium | blob-3 (front): faster
+   ================================================================= */
 ;(function () {
-  const r = document.documentElement;
-  let cx = 0.5, cy = 0.5, tx = 0.5, ty = 0.5;
+  const blob1 = document.querySelector('.hero-blob-1');
+  const blob2 = document.querySelector('.hero-blob-2');
+  const blob3 = document.querySelector('.hero-blob-3');
+  if (!blob1) return;
 
-  document.addEventListener('mousemove', e => {
-    tx = e.clientX / window.innerWidth;
-    ty = e.clientY / window.innerHeight;
-  });
-
-  function tick() {
-    cx += (tx - cx) * 0.04;
-    cy += (ty - cy) * 0.04;
-    // Layer 1 — deep, barely shifts (8% travel)
-    r.style.setProperty('--p1x', (46 + cx * 8).toFixed(2) + '%');
-    r.style.setProperty('--p1y', (24 + cy * 8).toFixed(2) + '%');
-    // Layer 2 — mid (18% travel, anchored bottom-right)
-    r.style.setProperty('--p2x', (69 + (cx - 0.5) * 18).toFixed(2) + '%');
-    r.style.setProperty('--p2y', (59 + (cy - 0.5) * 18).toFixed(2) + '%');
-    // Layer 3 — near, most movement (28% travel)
-    r.style.setProperty('--p3x', (8  + cx * 28).toFixed(2) + '%');
-    r.style.setProperty('--p3y', (48 + (cy - 0.5) * 28).toFixed(2) + '%');
-    requestAnimationFrame(tick);
+  function onScroll() {
+    const y = window.scrollY;
+    blob1.style.transform = `translateY(${y * 0.55}px)`;
+    blob2.style.transform = `translateY(${y * 0.35}px)`;
+    blob3.style.transform = `translateY(${y * 0.15}px)`;
   }
-  tick();
+
+  window.addEventListener('scroll', onScroll, { passive: true });
 })();
 
-// Slide carousel logic for services.html
+
+/* =================================================================
+   NAV GREETING — cycles multilingual hellos every ~3s
+   ================================================================= */
+;(function () {
+  const el = document.getElementById('navGreet');
+  if (!el) return;
+  const greets = [
+    'Hello, World.', 'Zdravo, Svete.', 'Hola, Mundo.',
+    'Ciao, Mondo.', 'Bonjour, Monde.', 'こんにちは。', 'Привет, Мир.'
+  ];
+  let i = 0;
+  el.style.transition = 'opacity 0.22s ease';
+  setInterval(() => {
+    i = (i + 1) % greets.length;
+    el.style.opacity = '0';
+    setTimeout(() => { el.textContent = greets[i]; el.style.opacity = '1'; }, 220);
+  }, 3200);
+})();
+
+
+/* =================================================================
+   STORY — scroll reveal (3-D Z entrance) + timeline dot + accordion
+   ================================================================= */
+;(function () {
+  const chapters = document.querySelectorAll('.chapter');
+  if (!chapters.length) return;
+
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  chapters.forEach(ch => revealObs.observe(ch));
+
+  const activeObs = new IntersectionObserver(entries => {
+    entries.forEach(e => e.target.classList.toggle('active', e.isIntersecting));
+  }, { rootMargin: '-10% 0px -45% 0px', threshold: 0 });
+  chapters.forEach(ch => activeObs.observe(ch));
+
+  /* accordion */
+  document.querySelectorAll('.expand-btn').forEach(btn => {
+    const panel = document.getElementById(btn.getAttribute('data-panel'));
+    if (!panel) return;
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      if (!open) {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        panel.classList.add('open');
+      } else {
+        panel.style.maxHeight = '0';
+        panel.classList.remove('open');
+      }
+    });
+  });
+})();
+
+
+/* =================================================================
+   3-D CARD TILT on hover
+   ================================================================= */
+;(function () {
+  document.querySelectorAll('.project-card, .conv-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width  - 0.5) * 12;
+      const y = ((e.clientY - r.top)  / r.height - 0.5) * 12;
+      card.style.transform = `translateY(-4px) rotateX(${-y}deg) rotateY(${x}deg)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  });
+})();
+
+
+/* =================================================================
+   SLIDE CAROUSEL (services.html)
+   ================================================================= */
 (function () {
   const container = document.getElementById('slidesContainer');
   if (!container) return;
@@ -35,10 +103,8 @@
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   const total = slides.length;
-  let current = 0;
-  let animating = false;
+  let current = 0, animating = false;
 
-  // Build dots
   slides.forEach((_, i) => {
     const dot = document.createElement('button');
     dot.className = 'dot' + (i === 0 ? ' active' : '');
@@ -47,84 +113,42 @@
     dotsContainer.appendChild(dot);
   });
 
-  function updateDots() {
-    dotsContainer.querySelectorAll('.dot').forEach((d, i) => {
-      d.classList.toggle('active', i === current);
-    });
-  }
-
-  function updateButtons() {
-    prevBtn.disabled = current === 0;
-    nextBtn.disabled = current === total - 1;
-  }
+  function updateDots()    { dotsContainer.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i === current)); }
+  function updateButtons() { prevBtn.disabled = current === 0; nextBtn.disabled = current === total - 1; }
 
   function goTo(next) {
     if (animating || next === current || next < 0 || next >= total) return;
     animating = true;
-
-    const direction = next > current ? 'up' : 'down';
-    const exitClass = direction === 'up' ? 'exit-up' : 'exit-down';
-
-    const fromSlide = slides[current];
-    const toSlide = slides[next];
-
-    // Prepare incoming slide without transition
-    toSlide.style.transition = 'none';
-    toSlide.classList.remove('exit-up', 'exit-down', 'active');
-    toSlide.style.transform = direction === 'up' ? 'translateY(40px)' : 'translateY(-40px)';
-    toSlide.style.opacity = '0';
-    toSlide.style.pointerEvents = 'none';
-
-    void toSlide.offsetHeight; // force reflow
-
-    toSlide.style.transition = '';
-    toSlide.style.transform = '';
-    toSlide.style.opacity = '';
-
-    fromSlide.classList.add(exitClass);
-    fromSlide.classList.remove('active');
-    fromSlide.style.pointerEvents = 'none';
-
-    toSlide.classList.add('active');
-
-    current = next;
-    updateDots();
-    updateButtons();
-
-    setTimeout(() => {
-      fromSlide.classList.remove(exitClass);
-      fromSlide.style.pointerEvents = '';
-      animating = false;
-    }, 520);
+    const dir = next > current ? 'up' : 'down';
+    const from = slides[current], to = slides[next];
+    to.style.transition = 'none';
+    to.classList.remove('exit-up','exit-down','active');
+    to.style.transform = dir === 'up' ? 'translateY(40px)' : 'translateY(-40px)';
+    to.style.opacity = '0'; to.style.pointerEvents = 'none';
+    void to.offsetHeight;
+    to.style.transition = ''; to.style.transform = ''; to.style.opacity = '';
+    from.classList.add(dir === 'up' ? 'exit-up' : 'exit-down');
+    from.classList.remove('active'); from.style.pointerEvents = 'none';
+    to.classList.add('active');
+    current = next; updateDots(); updateButtons();
+    setTimeout(() => { from.classList.remove('exit-up','exit-down'); from.style.pointerEvents = ''; animating = false; }, 520);
   }
 
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); goTo(current + 1); }
-    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   { e.preventDefault(); goTo(current - 1); }
+  document.addEventListener('keydown', e => {
+    if (e.key==='ArrowRight'||e.key==='ArrowDown') { e.preventDefault(); goTo(current+1); }
+    if (e.key==='ArrowLeft' ||e.key==='ArrowUp')   { e.preventDefault(); goTo(current-1); }
   });
 
-  // Touch swipe support
-  let touchStartY = null;
-  let touchStartX = null;
-  document.addEventListener('touchstart', (e) => {
-    touchStartY = e.touches[0].clientY;
-    touchStartX = e.touches[0].clientX;
-  }, { passive: true });
-
-  document.addEventListener('touchend', (e) => {
-    if (touchStartY === null) return;
-    const dy = touchStartY - e.changedTouches[0].clientY;
-    const dx = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 40) {
-      dy > 0 ? goTo(current + 1) : goTo(current - 1);
-    } else if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-      dx > 0 ? goTo(current + 1) : goTo(current - 1);
-    }
-    touchStartY = null;
-    touchStartX = null;
+  let ty = null, tx = null;
+  document.addEventListener('touchstart', e => { ty = e.touches[0].clientY; tx = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend',   e => {
+    if (ty === null) return;
+    const dy = ty - e.changedTouches[0].clientY, dx = tx - e.changedTouches[0].clientX;
+    if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 40) dy > 0 ? goTo(current+1) : goTo(current-1);
+    else if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) dx > 0 ? goTo(current+1) : goTo(current-1);
+    ty = tx = null;
   }, { passive: true });
 
   updateButtons();
